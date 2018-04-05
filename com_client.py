@@ -7,7 +7,10 @@ print (minhastr)
 meusbytes=str.encode (minhastr, "UTF-8")
 print (meusbytes)
 
-s.connect(("unilasalle.edu.br", 80))
+servidor="unilasalle.edu.br"
+porta=80
+
+s.connect((servidor, porta))
 s.send (meusbytes)
 
 data = s.recv (1024)
