@@ -14,7 +14,7 @@ s = socket ()
 #meusbytes=str.encode (minhastr, "UTF-8")
 #print (meusbytes)
 
-servidor="127.0.0.1"
+servidor="10.10.13.1"
 porta=8753
 
 s.connect((servidor, porta))
@@ -22,16 +22,12 @@ t = threading.Thread(target=recebe,args=())
 t.start()
 
 while True:
-        print ("Frase:", end=' ')
-        ss=""
-        while True:
-                c = sys.stdin.read(1)
+        #print ("Frase:", end=' ')
 
-                if (c == '\n'):
-                        break
-                
-                ss+=c
-        s.send (str.encode(ss , "UTF-8"))
+        ss = input ("Frase: ")
+
+        if (ss != ''):
+                s.send (str.encode(ss , "UTF-8"))
 
 
 

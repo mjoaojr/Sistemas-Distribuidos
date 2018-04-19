@@ -18,7 +18,7 @@ def envia ():
 				print ("Enviando "+m[1].decode("utf-8")+"...")
 				for c in conexoes:
 					if not (c is None):
-						c[0].send (str.encode("["+str(cliente[0])+"]: "+m[1].decode("utf-8") , "UTF-8"))
+						c[0].send (str.encode("["+str(m[0])+"]: "+m[1].decode("utf-8") , "UTF-8"))
 			mensagens = []
 			
 def atende (conn, cliente, ident):
@@ -46,12 +46,12 @@ def atende (conn, cliente, ident):
 
 	conn.close ()
 	with mutex2:
-		conexoes[ident] = None
+		conexoes[ident-1] = None
 
 
 s = socket ()
 
-host = "127.0.0.1"
+host = "10.10.13.1"
 porta = 8753
 s.bind ((host, porta))
 s.listen (10)
