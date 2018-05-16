@@ -21,3 +21,4 @@ Repare que o prompt mudou
 
 Instalar os pacotes necessários
 > pip3 install flask-sqlalchemy
+> pip3 install https://pypi.python.org/packages/source/F/Flask-Jsonpify/Flask-Jsonpify-1.1.tar.gz
