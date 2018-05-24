@@ -1,0 +1,24 @@
+instalar sqlite3
+> sudo apt-get install sqlite3 libsqlite3-dev
+
+baixar e descompactar o banco de dados
+> wget http://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip
+> unzip chinook.zip
+O esquema do banco está em http://www.sqlitetutorial.net/sqlite-sample-database/
+
+instalar pip
+> sudo apt-get install python3-pip
+
+instalar o virtualenv
+> sudo pip3 install virtualenv
+
+criar um ambiente virtual
+> virtualenv -p python3 srv_restful
+
+Ativar o ambiente criado
+> source srv_restful/bin/activate
+Repare que o prompt mudou
+
+Instalar os pacotes necessários
+> pip3 install flask-sqlalchemy
+> pip3 install https://pypi.python.org/packages/source/F/Flask-Jsonpify/Flask-Jsonpify-1.1.tar.gz
