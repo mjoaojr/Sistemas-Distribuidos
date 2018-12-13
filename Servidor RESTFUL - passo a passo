@@ -4,7 +4,7 @@ instalar sqlite3
 baixar e descompactar o banco de dados
 > wget http://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip
 > unzip chinook.zip
-O esquema do banco está em http://www.sqlitetutorial.net/sqlite-sample-database/
+O esquema do banco está em <a href="http://www.sqlitetutorial.net/sqlite-sample-database/">aqui</a>
 
 instalar pip
 > sudo apt-get install python3-pip
