@@ -6,7 +6,12 @@ def PrintHello(tid):
 
 
 
+threads = []
 for i in range (5):
 	print ("Criando thread "+str(i))
-	t = Thread(target=PrintHello,args=(i,))
-	t.start()
+	threads.append (Thread(target=PrintHello,args=(i,)))
+	threads[-1].start()
+
+for i in range (5):
+	print ("Aguardando thread "+str(i))
+	threads[i].join ()

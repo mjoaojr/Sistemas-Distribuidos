@@ -1,5 +1,4 @@
 from threading import Thread
-import time
 
 cont = 0
 
@@ -8,7 +7,6 @@ def PrintHello(tid):
 	for i in range (10):
 		cont += 1
 #		print (str(cont))
-#	time.sleep (tid)
 
 
 threads = []

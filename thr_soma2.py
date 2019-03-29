@@ -1,21 +1,26 @@
-from threading import Thread
+import threading
 import time
 
 total = 0
 
 def PrintHello(tid):
 	global	total
-	subtotal = 0
-	for i in range (5):
+	global	mutex
+	mutex.acquire ()
+	subtotal = total
+	for i in range (50):
 		subtotal += i
 	time.sleep (tid)
-	total += subtotal
+	total = subtotal
+	mutex.release ()
+
 
 
 threads = []
+mutex = threading.Lock()
 for i in range (5):
 	print ("Criando thread "+str(i))
-	threads.append (Thread(target=PrintHello,args=(i,)))
+	threads.append (threading.Thread(target=PrintHello,args=(i,)))
 	threads[-1].start()
 
 for i in range (5):
