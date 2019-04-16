@@ -1,11 +1,28 @@
 from socket import *
 import threading
 
+alunos = {
+"10.10.17.2": "Dã",
+"10.10.17.3": "Rafael",
+"10.10.17.4": "Luiza",
+"10.10.17.5": "Guilherme",
+"10.10.17.6": "Caio",
+"10.10.17.7": "Izalena",
+"10.10.17.10": "Broitman",
+"10.10.17.13": "Barroso",
+"10.10.17.14": "Vitoria",
+"10.10.17.15": "Moises",
+"10.10.17.16": "Andre",
+"10.10.17.17": "Victoria",
+"10.10.17.18": "Jonathan",
+"10.10.17.20": "Mateus"
+}
+
 def tem_msg ():
 	return len(mensagens) > 0
 
 def envia ():
-	global mensagens
+	global mensagens, alunos
 	while True:
 		print (mensagens)
 		with cv:
@@ -18,7 +35,12 @@ def envia ():
 				print ("Enviando "+m[1].decode("utf-8")+"...")
 				for c in conexoes:
 					if not (c is None):
-						c[0].send (str.encode("["+str(m[0])+"]: "+m[1].decode("utf-8") , "UTF-8"))
+						if m[0][0] in alunos:
+							al = alunos[m[0][0]]
+						else:
+							al = m[0]
+						minhastr = "[" + str(al) + "]: " + m[1].decode("utf-8")
+						c[0].send (str.encode(minhastr, "utf-8"))
 			mensagens = []
 			
 def atende (conn, cliente, ident):
@@ -51,8 +73,8 @@ def atende (conn, cliente, ident):
 
 s = socket ()
 
-host = "10.10.13.1"
-porta = 8753
+host = "10.10.17.1"
+porta = 8752
 s.bind ((host, porta))
 s.listen (10)
 nthr = 0
