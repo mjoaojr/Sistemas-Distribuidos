@@ -1,0 +1,35 @@
+Para instalar o MySQL
+> yum install mysql
+
+Para acessar a instância:
+> mysql -h <host> -P <porta> -D <Nome do Banco> -u <usuário> -p 
+Exemplo:
+> mysql -h dbexemplo.cfphoqhgbuv2.sa-east-1.rds.amazonaws.com -P 3306 -D chinook -u admin -p 
+Para importar o banco para a instância:
+> mysql -h <host> -P <porta> -D <Nome do Banco> -u <usuário> -p < <nome do arquivo .sql>
+
+Para instalar o Python3
+> sudo yum install python3
+
+Para instalar o módulo de acesso ao MySQL
+> sudo pip3 install mysql-connector-python
+
+EM PYTHON
+
+Para importar o módulo:
+> import mysql.connector
+
+Para fazer a conexão:
+> conn = mysql.connector.connect (host='<nome do host>', user='<nome do Usuário', passwd='<senha>', port='<porta>', database='<nome do banco>')
+
+Para criar um cursor:
+> cursor = conn.cursor()
+
+Para realizar uma query:
+> cursor.execute('<query string>')
+
+Para obter os dados:
+> records = cursor.fetchall()
+
+Para fechar a conexão:
+> conn.close()
