@@ -15,22 +15,32 @@ def funca ():
             conta +=1
             if conta == 3:
                 contb = 1
-                cv.notify_all ()
-                cv.wait_for (faza)
+                notify_all ()
+                wait_for (faza)
 
 def funcb ():
     global conta
     global contb
     for i in range (10):
         with cv:
-            cv.wait_for (fazb)
+            wait_for (fazb)
             contb = 0
             print ("B")
             conta = 0
-            cv.notify_all ()
+            notify_all ()
 
 
 conta = 0
 contb = 0
 cv = threading.Condition ()
+
+threads = []
+threads.append (threading.Thread(target=funca))
+threads.append (threading.Thread(target=funcb))
+
+for t in threads:
+    t.start ()
+
+for t in threads:
+    t.join ()
 
