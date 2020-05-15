@@ -16,4 +16,3 @@ url_rota = api_rota+urllib.parse.urlencode ({"app_id":"iXivJUgwxkvkXv8UvSib", "a
 print (url_rota)
 dados_rota=requests.get(url_rota).json()
 print (dados_rota)
-~                   
