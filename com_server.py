@@ -24,4 +24,4 @@ while True:
 
         print ("Fim da conexao com "+str(cliente))
 
-        conn.close
+        conn.close ()
