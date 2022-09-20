@@ -2,7 +2,7 @@ from socket import *
 
 s = socket ()
 
-host = "152.92.92.7"
+host = "127.0.0.1"
 porta = 8752
 s.bind ((host, porta))
 s.listen (10)
